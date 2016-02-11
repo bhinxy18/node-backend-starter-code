@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>General Assembly - NodeJS</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <style>
+        .listing {
+            padding: 5px;        
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">OMDBapi Movie Database</h3>
+            </div>
+            <div class="panel-body">
+                <form class="navbar-form navbar-left" role="search" name="frmSearch" id="frmSearch">
+                    <div class="form-group">
+                        <input type="text" name="title" id="txtTitle" class="form-control" placeholder="Movie Title">
+                    </div>
+                    <button type="submit" class="btn btn-default" id="btnSearch">Search</button>
+                </form>
+            </div>
+        
+        <br />
+        <div id="container">
+            <!-- search results here -->
+        </div>
+    </div>
+
+<script type="text/javascript" src="./js/custom.js"></script>
+</body>
+</html> 
