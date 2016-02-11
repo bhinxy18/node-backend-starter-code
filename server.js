@@ -1,13 +1,17 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
+var hbs = require('hbs');
 var path = require('path');
 var bodyParser = require('body-parser');
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.set('view options', { pretty: true });
+
+// set the view engine to use handlebars
+app.set('views', __dirname + '/views');
+app.set('view engine', '.hbs');
 
 //display the landing page (search form)
 app.get('/', function (req, res) {
@@ -40,8 +44,8 @@ app.get('/save-favorites', function (req, res) {
 app.get('/favorites', function(req, res) {
     var data = fs.readFileSync('./data.json');
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(data));
-    //res.render('./favorites.html', { layout: false, PageTitle: 'Project Name'});   
+
+    res.render('favorites', JSON.parse(data));  
 });
 
 
