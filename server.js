@@ -43,8 +43,6 @@ app.get('/save-favorites', function (req, res) {
 //lists all the favorites
 app.get('/favorites', function(req, res) {
     var data = fs.readFileSync('./data.json');
-    res.setHeader('Content-Type', 'application/json');
-
     res.render('favorites', JSON.parse(data));  
 });
 
