@@ -30,3 +30,4 @@
 
 #### Notes
 
+- The favorites are not IP based. Meaning, it will just keep adding to the data regardless of the browser/computer used.
