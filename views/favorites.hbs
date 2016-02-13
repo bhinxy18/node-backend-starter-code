@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
-    <title>General Assembly - NodeJS implementation</title>
-    <link rel='stylesheet' href='./css/bootstrap.min.css'>
-</head>
-<body>
-    <ul>
-    {{#each favorites}}
-        <li>{{this}}</li>
-    {{/each}}
-    </ul>
-</body>
-</html> 
+<div style="padding: 25px;">
+<a href="/">Back to landing page</a>
+    
+<h3>Favorites:</h3>
+<ul>
+{{#each favorites}}
+    <li>{{{this}}}</li>
+{{/each}}
+</ul>
+    
+</div>
