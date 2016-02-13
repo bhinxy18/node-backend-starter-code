@@ -25,10 +25,12 @@ app.get('/save-favorites', function (req, res) {
     var dataJSON = JSON.parse(data);
     //append new favorite
     dataJSON.favorites.push(req.query.title);
+    
+    var newFavorites = remove_duplicates_safe(dataJSON.favorites);
 
     // Prepare output in JSON format
     response = {
-       favorites:dataJSON.favorites,
+       favorites:newFavorites,
     };
     //saves data to data.json file
     fs.writeFile('data.json', JSON.stringify(response), function (err,data) {
@@ -37,7 +39,7 @@ app.get('/save-favorites', function (req, res) {
         }
     });
     //redirect to favorites page
-    res.redirect("/favorites");
+    res.redirect("/favorites");   
 });
 
 //lists all the favorites
@@ -51,3 +53,15 @@ app.listen(process.env.PORT || 3000, function() {
     console.log("Listening on port 3000");
 });
 
+//function to remove duplicates in an array
+function remove_duplicates_safe(arr) {
+    var obj = {};
+    var arr2 = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (!(arr[i] in obj)) {
+            arr2.push(arr[i]);
+            obj[arr[i]] = true;
+        }
+    }
+    return arr2;
+}
